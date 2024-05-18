@@ -26,7 +26,7 @@ class _ContadorPageState extends State<ContadorPage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       
       floatingActionButton: _crearBotones(),
-      appBar:AppBar(title: const Text('Titulo'),
+      appBar:AppBar(title: const Text('Titulod'),
       centerTitle: true,),
       body:  Center(child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
