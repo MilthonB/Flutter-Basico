@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget{
@@ -20,7 +22,7 @@ class HomePage extends StatelessWidget{
           color: Color.fromRGBO(255, 255, 255, 1),
           ),
       ),
-      appBar:AppBar(title: const Text('Titulo'),
+      appBar:AppBar(title: const Text('Titulos', ),
       centerTitle: true,),
       body: const Center(child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
