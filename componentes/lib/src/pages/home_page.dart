@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, avoid_print
 
 import 'package:componentes/src/pages/alert_page.dart';
 import 'package:componentes/src/providers/menu_provider.dart';
@@ -32,18 +32,13 @@ class HomePage extends StatelessWidget {
           return ListView(children: _listItems(snapshot.data, context),);
         });
 
-
-
-
   }
   
   List<Widget> _listItems(List<dynamic> data, BuildContext context) {
 
-
     List<Widget> listWid = <Widget>[];
 
     data.forEach((data) {
-
       final tempWidget = Column(
           children: [
             ListTile(
@@ -52,18 +47,19 @@ class HomePage extends StatelessWidget {
               leading: getIcon(data['icon']),
               trailing: Icon(Icons.keyboard_arrow_right, color: Colors.blue,),
               onTap: (){
-                final route = MaterialPageRoute(
-                  builder: (context,){
-                    return AlertPage();
-                  });
-                Navigator.push(context, route);
+                
+                // final route = MaterialPageRoute(
+                //   builder: (context,){
+                //     return AlertPage();
+                //   });
+                Navigator.pushNamed(context, data['ruta']);
               },
             ),
           ],
         );
 
         listWid.add(tempWidget);
-
+    
     });
     return listWid;
 
