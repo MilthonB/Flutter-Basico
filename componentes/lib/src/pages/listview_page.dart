@@ -50,6 +50,7 @@ class _ListviewPageState extends State<ListviewPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('ListView'),),
+      
       body: Stack(
         children: [
           _crearLista(),
@@ -79,11 +80,68 @@ class _ListviewPageState extends State<ListviewPage> {
         itemCount: _listaNumeros.length,
         itemBuilder: (BuildContext context, int index) {
           final imagen = _listaNumeros[index];
-          return FadeInImage(
-            placeholder: AssetImage('assets/jar-loading.gif'), 
-            image: NetworkImage('https://picsum.photos/500/300?random=${imagen}'),
-            fit: BoxFit.contain,
-            );
+          return Card(
+            clipBehavior: Clip.antiAlias,
+            elevation: 13.0,
+            margin: EdgeInsets.all(25.0),
+            child: Column(
+              children: [
+                FadeInImage(
+                  placeholder: AssetImage('assets/jar-loading.gif'), 
+                  image: NetworkImage('https://picsum.photos/500/300?random=${imagen}'),
+                  fit: BoxFit.cover,
+                  ),
+                  Container(
+                    padding: EdgeInsets.all(20.0),
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            Text('Description: ', style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold
+                            ),),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Flexible(
+                              fit: FlexFit.loose,
+                              child: Text( softWrap: false, overflow: TextOverflow.fade,
+                                'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años: ', style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.normal
+                              ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Icon(Icons.favorite,color: Colors.red,),
+                            Text('100'),
+                            SizedBox(width: 15.0,),
+                            Icon(Icons.star,color: Colors.yellow,),
+                            Text('150'),
+                            SizedBox(width: 15.0,),
+                            Icon(Icons.share,color: Colors.green,),
+                            Text('50'),
+                            SizedBox(width: 15.0,),
+                            
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Text('Date: 12/12/12 - 12pm ')
+                          ],
+                        ),
+                      ],
+                    ),
+                  )
+              ],
+            ),
+          );
         },
       ),
     );
